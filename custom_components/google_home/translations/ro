@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Autentificare Google Home",
+        "description": "Dacă ai nevoie de ajutor pentru configurare, aruncă o privire aici: https://github.com/leikoilja/ha-google-home. Folosește numele de utilizator al contului tău Google și parola pentru aplicație. Este mai sigur și mai ușor să generezi o parolă pentru aplicație și să o folosești în locul parolei reale. Aceasta are aceleași permisiuni ca și parola obișnuită, dar este mai sigură decât folosirea parolei reale în scripturi. (https://myaccount.google.com/apppasswords). Dacă nu, parola obișnuită a contului Google ar trebui să funcționeze.",
+        "data": {
+          "username": "Nume utilizator cont Google",
+          "password": "Parola aplicație cont Google",
+          "master_token": "Token principal cont Google"
+        }
+      }
+    },
+    "error": {
+      "auth": "Nume utilizator/parolă incorectă. Dacă contul tău Google are 2FA activat, te rugăm să generezi o parolă pentru aplicație (https://myaccount.google.com/apppasswords). Dacă autentificarea continuă să eșueze, te rugăm să consulți https://github.com/leikoilja/ha-google-home#troubleshooting",
+      "pass-len": "Lungimea parolei este limitată la 100 de caractere conform politicii Google (https://support.google.com/a/answer/139399). Te rugăm să îți schimbi parola sau să folosești o parolă pentru aplicație (https://myaccount.google.com/apppasswords).",
+      "missing-inputs": "Te rugăm să oferi fie numele utilizatorului și parola, fie tokenul principal.",
+      "master-token-invalid": "Tokenul principal este invalid. Asigură-te că tokenul complet este specificat (inclusiv 'aas_et/')"
+    },
+    "abort": {
+      "single_instance_allowed": "Este permisă doar o singură instanță."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "update_interval": "Schimbă intervalul de actualizare. Crește-l dacă întâmpini probleme cu expirarea dispozitivelor. Implicit: 180 (secunde)"
+        }
+      }
+    }
+  },
+  "services": {
+    "delete_alarm": {
+      "description": "Șterge o alarmă de pe un dispozitiv Google Home.",
+      "fields": {
+        "alarm_id": {
+          "description": "ID-ul unei alarme (alarm/xxx).",
+          "name": "ID Alarmă"
+        },
+        "skip_refresh": {
+          "description": "Sari peste actualizarea dispozitivelor Google Home după ștergerea unei alarme.",
+          "name": "Sari peste actualizare"
+        },
+        "entity_id": {
+          "description": "Reprezintă un dispozitiv Google Home (sensor.xxxx_alarms).",
+          "name": "Entitate"
+        }
+      },
+      "name": "Șterge alarmă"
+    },
+    "delete_timer": {
+      "description": "Șterge un timer de pe un dispozitiv Google Home.",
+      "fields": {
+        "timer_id": {
+          "description": "ID-ul unui timer (timer/xxx).",
+          "name": "ID Timer"
+        },
+        "skip_refresh": {
+          "description": "Sari peste actualizarea dispozitivelor Google Home după ștergerea unui timer.",
+          "name": "Sari peste actualizare"
+        },
+        "entity_id": {
+          "description": "Reprezintă un dispozitiv Google Home (sensor.xxxx_alarms).",
+          "name": "Entitate"
+        }
+      },
+      "name": "Șterge timer"
+    },
+    "reboot_device": {
+      "description": "Repornește un dispozitiv Google Home.",
+      "name": "Repornește dispozitivul"
+    },
+    "refresh_devices": {
+      "description": "Reîmprospătează statusul tuturor dispozitivelor Google Home.",
+      "name": "Reîmprospătează dispozitivele"
+    }
+  }
+}
